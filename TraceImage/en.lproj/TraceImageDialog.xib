@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <development version="5000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TraceImage">
+            <connections>
+                <outlet property="_view" destination="1" id="16"/>
+                <outlet property="nodeCountField" destination="EZG-L9-32A" id="jDn-0X-14S"/>
+                <outlet property="tabview" destination="102" id="keB-c1-PMQ"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="1">
+            <rect key="frame" x="0.0" y="0.0" width="302" height="234"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <tabView horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="102">
+                    <rect key="frame" x="-1" y="20" width="304" height="214"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Potrace" identifier="potrace" id="104" userLabel="potrace">
+                            <view key="view" verticalHuggingPriority="750" id="105">
+                                <rect key="frame" x="10" y="33" width="284" height="154"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="26">
+                                        <rect key="frame" x="141" y="126" width="65" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Threshold" id="27">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="124" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="Ixt-gb-0OJ"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="8">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="2000000000" id="11">
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="positiveSuffix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="1"/>
+                                                <real key="maximum" value="255"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.Threshold" id="76"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="60">
+                                        <rect key="frame" x="18" y="94" width="188" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size of smalles element" id="61">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="70">
+                                        <rect key="frame" x="132" y="62" width="74" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Roundness" id="71">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="13">
+                                        <rect key="frame" x="102" y="36" width="124" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Optimize Curves" bezelStyle="regularSquare" imagePosition="right" alignment="right" state="on" inset="2" id="14">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.OptimizeCurves" id="79"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="65">
+                                        <rect key="frame" x="61" y="10" width="145" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Optimization Tolerance" id="66">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="59" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="92" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="9b2-CL-dNO"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="62">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="2000000000" id="63">
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="positiveSuffix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="1"/>
+                                                <real key="maximum" value="255"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.MinElementSize" id="77"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="69" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="60" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="aiQ-N3-wQA"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="72">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" lenient="YES" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="73">
+                                                <integer key="multiplier" value="100"/>
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="positiveSuffix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="1.3400000000000001"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.Roundness" id="78"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="64" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="8" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="W2n-zE-dww"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="67">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" lenient="YES" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="68">
+                                                <integer key="multiplier" value="100"/>
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="positiveSuffix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="2"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.OptimizationTolerance" id="81"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="59" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="6Ft-Nn-KKp"/>
+                                    <constraint firstItem="59" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="10" symbolic="YES" id="8E0-L7-mNZ"/>
+                                    <constraint firstItem="60" firstAttribute="baseline" secondItem="59" secondAttribute="baseline" id="FKa-65-6d9"/>
+                                    <constraint firstItem="60" firstAttribute="trailing" secondItem="26" secondAttribute="trailing" id="IYA-Yu-Ebr"/>
+                                    <constraint firstItem="60" firstAttribute="trailing" secondItem="65" secondAttribute="trailing" id="LeT-Mn-9Uf"/>
+                                    <constraint firstItem="70" firstAttribute="baseline" secondItem="69" secondAttribute="baseline" id="Naa-9D-eFa"/>
+                                    <constraint firstItem="65" firstAttribute="baseline" secondItem="64" secondAttribute="baseline" id="S8C-J8-oAs"/>
+                                    <constraint firstItem="59" firstAttribute="leading" secondItem="69" secondAttribute="leading" id="baP-vd-Nkl"/>
+                                    <constraint firstItem="60" firstAttribute="leading" secondItem="105" secondAttribute="leading" constant="20" symbolic="YES" id="cde-xv-Mdk"/>
+                                    <constraint firstItem="13" firstAttribute="trailing" secondItem="70" secondAttribute="trailing" constant="20" id="e7a-Sw-lag"/>
+                                    <constraint firstItem="69" firstAttribute="top" secondItem="59" secondAttribute="bottom" constant="10" symbolic="YES" id="e8C-s8-xyQ"/>
+                                    <constraint firstItem="64" firstAttribute="top" secondItem="13" secondAttribute="bottom" constant="8" symbolic="YES" id="g2Z-R0-Myu"/>
+                                    <constraint firstAttribute="bottom" secondItem="64" secondAttribute="bottom" constant="8" id="g2n-Bc-qod"/>
+                                    <constraint firstItem="60" firstAttribute="trailing" secondItem="70" secondAttribute="trailing" id="iGe-A5-Ir6"/>
+                                    <constraint firstItem="7" firstAttribute="top" secondItem="105" secondAttribute="top" constant="8" id="iu4-mi-R4a"/>
+                                    <constraint firstItem="26" firstAttribute="baseline" secondItem="7" secondAttribute="baseline" id="tlt-T7-vDM"/>
+                                    <constraint firstItem="7" firstAttribute="leading" secondItem="26" secondAttribute="trailing" constant="8" symbolic="YES" id="xBJ-Hs-04I"/>
+                                    <constraint firstItem="59" firstAttribute="leading" secondItem="64" secondAttribute="leading" id="xbv-Yg-v4k"/>
+                                    <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" constant="20" symbolic="YES" id="yWB-Cc-6Jj"/>
+                                    <constraint firstItem="13" firstAttribute="top" secondItem="69" secondAttribute="bottom" constant="8" symbolic="YES" id="yfE-ZP-8hD"/>
+                                </constraints>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="Autotrace" identifier="autotrace" id="103" userLabel="autotrace">
+                            <view key="view" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="106">
+                                <rect key="frame" x="10" y="33" width="284" height="156"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button toolTip="Trace a character's centerline, rather than its outline." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u6K-gb-NhE">
+                                        <rect key="frame" x="163" y="132" width="63" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Stroke" bezelStyle="regularSquare" imagePosition="right" alignment="right" state="on" inset="2" id="Mxk-8j-Mou">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.Stroke" id="FgS-Vb-itE">
+                                                <dictionary key="options">
+                                                    <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5e-CP-Waq">
+                                        <rect key="frame" x="98" y="106" width="108" height="17"/>
+                                        <string key="toolTip">If a pixel, its predecessor(s), and its successor(s) meet at an angle smaller than this, it’s a corner.
+Default is 100</string>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Corner threshold" id="d4g-VX-CZL">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9O-FH-wVk" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="104" width="52" height="22"/>
+                                        <string key="toolTip">If a pixel, its predecessor(s), and its successor(s) meet at an angle smaller than this, it’s a corner.
+Default is 100</string>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="64c-n2-5rY"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="eqC-LL-1Yq">
+                                            <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" positiveSuffix="°" id="7aS-ut-FZu">
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="120"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.CornerThreshold" id="tfJ-ao-dlY">
+                                                <dictionary key="options">
+                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FgV-kO-xPe">
+                                        <rect key="frame" x="101" y="74" width="105" height="17"/>
+                                        <string key="toolTip">Number of pixels on either side of a point to consider when determining if that.
+Default is 4.</string>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Corner surround" id="7Ro-cT-eVy">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-Gb-fvW" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="72" width="52" height="22"/>
+                                        <string key="toolTip">Number of pixels on either side of a point to consider when determining if that.
+Default is 4.</string>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="LMY-Lx-d25"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="qsa-X4-pga">
+                                            <numberFormatter key="formatter" formatterBehavior="custom10_4" allowsFloats="NO" usesGroupingSeparator="NO" lenient="YES" paddingPosition="beforeSuffix" paddingCharacter=" " groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" positiveSuffix=" px" id="Ufv-e2-C58">
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="100"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.CornerSurround" id="atC-B4-He9">
+                                                <dictionary key="options">
+                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aeR-Nm-k5m">
+                                        <rect key="frame" x="114" y="42" width="92" height="17"/>
+                                        <string key="toolTip">If the angle at a pixel is less than this, it is considered a corner, even if it is within ‘corner-surround’ pixels of another corner.
+Default is 60.</string>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Always corner" id="YWg-FE-xQC">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KOa-KH-zrf" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="40" width="52" height="22"/>
+                                        <string key="toolTip">If the angle at a pixel is less than this, it is considered a corner, even if it is within ‘corner-surround’ pixels of another corner.
+Default is 60.</string>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="SfZ-aK-kee"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="tFz-nv-GTi">
+                                            <numberFormatter key="formatter" formatterBehavior="custom10_4" allowsFloats="NO" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" positiveSuffix="°" id="ScY-9U-PZe">
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="120"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.AlwaysCorner" id="wXE-b0-GHW">
+                                                <dictionary key="options">
+                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N2H-pL-VTI" customClass="GSSteppingTextField">
+                                        <rect key="frame" x="212" y="8" width="52" height="22"/>
+                                        <string key="toolTip">0..20.
+Default is no despeckling</string>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="U1P-xQ-dTn"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="reg-NR-Vo5">
+                                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="2000000000" id="PIP-YF-SU8">
+                                                <nil key="paddingCharacter"/>
+                                                <nil key="decimalSeparator"/>
+                                                <nil key="groupingSeparator"/>
+                                                <nil key="currencyDecimalSeparator"/>
+                                                <nil key="plusSign"/>
+                                                <nil key="minusSign"/>
+                                                <nil key="nilSymbol"/>
+                                                <nil key="notANumberSymbol"/>
+                                                <nil key="perMillSymbol"/>
+                                                <nil key="percentSymbol"/>
+                                                <nil key="exponentSymbol"/>
+                                                <nil key="positivePrefix"/>
+                                                <nil key="positiveSuffix"/>
+                                                <nil key="negativePrefix"/>
+                                                <nil key="negativeSuffix"/>
+                                                <real key="minimum" value="0.0"/>
+                                                <real key="maximum" value="20"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="55" name="value" keyPath="values.com.schriftgestaltung.Trace.autoMinElementSize" id="Ox8-AA-eT6">
+                                                <dictionary key="options">
+                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l3Z-Fz-l9v">
+                                        <rect key="frame" x="18" y="10" width="188" height="17"/>
+                                        <string key="toolTip">0..20.
+Default is no despeckling</string>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size of smalles element" id="hxN-2a-HZo">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lF1-Gb-fvW" firstAttribute="top" secondItem="o9O-FH-wVk" secondAttribute="bottom" constant="10" symbolic="YES" id="10s-Gn-acc"/>
+                                    <constraint firstItem="o9O-FH-wVk" firstAttribute="top" secondItem="u6K-gb-NhE" secondAttribute="bottom" constant="8" symbolic="YES" id="29O-LP-zeU"/>
+                                    <constraint firstItem="o9O-FH-wVk" firstAttribute="leading" secondItem="N2H-pL-VTI" secondAttribute="leading" id="6Tv-uu-Jrs"/>
+                                    <constraint firstItem="l3Z-Fz-l9v" firstAttribute="baseline" secondItem="N2H-pL-VTI" secondAttribute="baseline" id="71H-oq-efz"/>
+                                    <constraint firstItem="l3Z-Fz-l9v" firstAttribute="leading" secondItem="106" secondAttribute="leading" constant="20" symbolic="YES" id="8JX-vM-gWf"/>
+                                    <constraint firstItem="u6K-gb-NhE" firstAttribute="trailing" secondItem="FgV-kO-xPe" secondAttribute="trailing" constant="20" id="Ctw-pm-Y2s"/>
+                                    <constraint firstItem="FgV-kO-xPe" firstAttribute="baseline" secondItem="lF1-Gb-fvW" secondAttribute="baseline" id="ET1-GQ-sab"/>
+                                    <constraint firstItem="lF1-Gb-fvW" firstAttribute="leading" secondItem="FgV-kO-xPe" secondAttribute="trailing" constant="8" symbolic="YES" id="I2i-qI-Z5v"/>
+                                    <constraint firstItem="N2H-pL-VTI" firstAttribute="top" secondItem="KOa-KH-zrf" secondAttribute="bottom" constant="10" symbolic="YES" id="IFG-Zi-xYg"/>
+                                    <constraint firstItem="F5e-CP-Waq" firstAttribute="baseline" secondItem="o9O-FH-wVk" secondAttribute="baseline" id="Pwi-8I-uFT"/>
+                                    <constraint firstItem="N2H-pL-VTI" firstAttribute="leading" secondItem="l3Z-Fz-l9v" secondAttribute="trailing" constant="8" symbolic="YES" id="TPZ-fx-fXS"/>
+                                    <constraint firstItem="aeR-Nm-k5m" firstAttribute="baseline" secondItem="KOa-KH-zrf" secondAttribute="baseline" id="U0S-ZU-NCe"/>
+                                    <constraint firstItem="lF1-Gb-fvW" firstAttribute="leading" secondItem="KOa-KH-zrf" secondAttribute="leading" id="UA5-1w-Nze"/>
+                                    <constraint firstItem="u6K-gb-NhE" firstAttribute="top" secondItem="106" secondAttribute="top" constant="8" id="XeC-ta-e3Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="N2H-pL-VTI" secondAttribute="bottom" constant="8" id="ZIV-uW-TMv"/>
+                                    <constraint firstItem="o9O-FH-wVk" firstAttribute="leading" secondItem="F5e-CP-Waq" secondAttribute="trailing" constant="8" symbolic="YES" id="eWJ-HI-2xv"/>
+                                    <constraint firstItem="o9O-FH-wVk" firstAttribute="leading" secondItem="F5e-CP-Waq" secondAttribute="trailing" constant="8" symbolic="YES" id="mb4-Yu-zKG"/>
+                                    <constraint firstItem="KOa-KH-zrf" firstAttribute="top" secondItem="lF1-Gb-fvW" secondAttribute="bottom" constant="10" symbolic="YES" id="qSg-T7-mjz"/>
+                                    <constraint firstAttribute="trailing" secondItem="o9O-FH-wVk" secondAttribute="trailing" constant="20" symbolic="YES" id="u2W-Tb-clx"/>
+                                    <constraint firstItem="lF1-Gb-fvW" firstAttribute="leading" secondItem="o9O-FH-wVk" secondAttribute="leading" id="x2L-S3-2QQ"/>
+                                    <constraint firstItem="KOa-KH-zrf" firstAttribute="leading" secondItem="aeR-Nm-k5m" secondAttribute="trailing" constant="8" symbolic="YES" id="zgN-h0-cZe"/>
+                                </constraints>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="UOZ-qY-yjq"/>
+                    </connections>
+                </tabView>
+                <textField horizontalHuggingPriority="151" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZG-L9-32A">
+                    <rect key="frame" x="18" y="8" width="33" height="14"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="lrU-1L-roO">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="EZG-L9-32A" secondAttribute="bottom" constant="8" id="Aja-VZ-aF6"/>
+                <constraint firstAttribute="trailing" secondItem="102" secondAttribute="trailing" constant="6" id="ILw-4U-12v"/>
+                <constraint firstItem="EZG-L9-32A" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="J5g-33-dZd"/>
+                <constraint firstItem="EZG-L9-32A" firstAttribute="top" secondItem="102" secondAttribute="bottom" constant="8" symbolic="YES" id="e9D-kT-iHe"/>
+                <constraint firstAttribute="trailing" secondItem="EZG-L9-32A" secondAttribute="trailing" constant="20" symbolic="YES" id="fX7-QX-CqM"/>
+                <constraint firstItem="102" firstAttribute="top" secondItem="1" secondAttribute="top" constant="6" id="pcD-ap-A7K"/>
+                <constraint firstItem="102" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="6" id="xCy-Mv-QOs"/>
+            </constraints>
+            <point key="canvasLocation" x="284" y="309"/>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="55"/>
+    </objects>
+</document>
