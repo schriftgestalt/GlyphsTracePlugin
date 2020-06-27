@@ -75,9 +75,6 @@ static int newline = 1;
 
 static void Glyphs_moveto(FILE *fout, dpoint_t p) {
 	// p = unit(p);
-	if (lastop != '0') {
-		fprintf(fout, "		);\n	},\n");
-	}
 	fprintf(fout, "	{\n		closed = 1;\n		nodes = (\n");
 	fprintf(fout, "			\"%.3f %.3f LINE\",\n", p.x, p.y);
 	lastop = 'M';
@@ -87,10 +84,6 @@ static void Glyphs_rmoveto(FILE *fout, dpoint_t p) {
 	// point_t q;
 
 	// q = unit(p);
-	if (lastop != '0') {
-		fprintf(fout, "		);\n	},\n");
-	}
-
 	fprintf(fout, "	{\n		closed = 1;\n		nodes = (\n");
 	fprintf(fout, "			\"%.3f %.3f LINE\",\n", p.x, p.y);
 	// cur = q;
@@ -155,6 +148,7 @@ static int Glyphs_path(FILE *fout, potrace_curve_t *curve, int abs) {
 		}
 	}
 	newline = 1;
+	fprintf(fout, "		);\n	},\n");
 	// shiptoken(fout, "z");
 	return 0;
 }
@@ -233,6 +227,6 @@ int page_Glyphs(FILE *fout, potrace_path_t *plist, imginfo_t *imginfo) {
 	}
 )
 	*/
-	fprintf(fout, "		);\n	}\n)\n");
+	fprintf(fout, ")\n");
 	return 0;
 }
