@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		56E3D8BF1B1C5E28009E51FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3D8BE1B1C5E28009E51FF /* Cocoa.framework */; };
-		56E3D8C41B1C5E28009E51FF /* TraceImage-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 56E3D8C31B1C5E28009E51FF /* TraceImage-Prefix.pch */; };
-		56E3D8C61B1C5E28009E51FF /* TraceImage-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56E3D8C51B1C5E28009E51FF /* TraceImage-Info.plist */; };
 		56E3D8C91B1C5E28009E51FF /* TraceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8C81B1C5E28009E51FF /* TraceImage.m */; };
 		56E3D8CC1B1C5E28009E51FF /* TraceImageDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E3D8CA1B1C5E28009E51FF /* TraceImageDialog.xib */; };
 		56E3D8CE1B1C5E28009E51FF /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3D8CD1B1C5E28009E51FF /* GlyphsCore.framework */; };
@@ -444,12 +442,15 @@
 				TargetAttributes = {
 					56E3D8BA1B1C5E28009E51FF = {
 						CreatedOnToolsVersion = 6.3.1;
+						ProvisioningStyle = Manual;
 					};
 					56E3D9421B1C5F61009E51FF = {
 						CreatedOnToolsVersion = 6.3.1;
+						ProvisioningStyle = Manual;
 					};
 					56E3D9F11B1C6002009E51FF = {
 						CreatedOnToolsVersion = 6.3.1;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -479,9 +480,7 @@
 			files = (
 				56E3DA511B1C7B73009E51FF /* potrace in Resources */,
 				56E3DA0E1B1C6051009E51FF /* autotrace in Resources */,
-				56E3D8C41B1C5E28009E51FF /* TraceImage-Prefix.pch in Resources */,
 				56E3D8CC1B1C5E28009E51FF /* TraceImageDialog.xib in Resources */,
-				56E3D8C61B1C5E28009E51FF /* TraceImage-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +592,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -637,6 +638,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -659,12 +662,15 @@
 		56E3D8D21B1C5E28009E51FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 13;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(USER_LIBRARY_DIR)/Application Support/Glyphs/Plugins";
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs.app/Contents/Frameworks";
 				INFOPLIST_FILE = TraceImage/Info.plist;
 				INSTALL_PATH = /;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GeorgSeifert.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -675,13 +681,15 @@
 		56E3D8D31B1C5E28009E51FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 13;
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs.app/Contents/Frameworks";
 				INFOPLIST_FILE = TraceImage/Info.plist;
 				INSTALL_PATH = /;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GeorgSeifert.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = glyphsFilter;
 			};
 			name = Release;
@@ -689,6 +697,7 @@
 		56E3D9481B1C5F61009E51FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -701,6 +710,7 @@
 		56E3D9491B1C5F61009E51FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				INSTALL_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -709,6 +719,7 @@
 		56E3D9F61B1C6002009E51FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -722,6 +733,7 @@
 		56E3D9F71B1C6002009E51FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				INSTALL_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
