@@ -455,7 +455,7 @@
 			};
 			buildConfigurationList = 56E3D8B61B1C5E28009E51FF /* Build configuration list for PBXProject "TraceImage" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -661,12 +661,13 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = "~/Library/Application Support/Glyphs/Plugins";
+				DSTROOT = "$(USER_LIBRARY_DIR)/Application Support/Glyphs/Plugins";
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs.app/Contents/Frameworks";
 				INFOPLIST_FILE = TraceImage/Info.plist;
 				INSTALL_PATH = /;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GeorgSeifert.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = glyphsFilter;
 			};
 			name = Debug;
