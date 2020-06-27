@@ -134,7 +134,7 @@
 
 				}
 				[[NSFileManager defaultManager] removeItemAtPath:TempSaveString error:nil];
-				[_nodeCountField setStringValue:@""];
+				[_nodeCountField setStringValue:@"No Result"];
 				if ([Result length] > 10) {
 					@try {
 						NSArray *PathArray = [Result propertyList];
