@@ -144,9 +144,9 @@
 							NSMutableArray *Paths = [NSMutableArray array];
 							NSAffineTransform *Transform = [NSAffineTransform transform];
 							[Transform setTransformStruct:[Image transformStruct]];
-							[Transform scaleBy:1.0f / Scale];
+							[Transform scaleBy:1.0 / Scale];
 							for (NSDictionary *PathDict in PathArray) {
-								GSPath *Path = [[GSPath alloc] initWithPathDict:PathDict];
+								GSPath *Path = [[GSPath alloc] initWithDict:PathDict format:GSFormatVersion1];
 								[Path cleanUp];
 								if (Path && [Path.nodes count] > 1) {
 									pathCount++;
@@ -158,7 +158,7 @@
 								}
 							}
 							if ([Paths count] > 0) {
-								[Layer setPaths:Paths];
+								[Layer setShapes:Paths];
 							}
 						}
 						[_nodeCountField setAlignment:NSCenterTextAlignment];
@@ -192,13 +192,13 @@
 
 - (NSString *)autoTraceImage:(NSString *)ImagePath stroke:(BOOL)Stroke cornerThreshold:(NSUInteger)CornerThreshold cornerSurround:(NSUInteger)cornerSurround alwaysCorner:(NSUInteger)AlwaysCorner minElementSize:(NSUInteger)MinElementSize {
 	NSMutableArray *Arguments = [NSMutableArray arrayWithObjects:
-								 @"-color-count", @"2",
-								 @"-background-color", @"FFFFFF",
-								 @"-corner-threshold", [NSString stringWithFormat:@"%d", (int)CornerThreshold],
-								 @"-corner-always-threshold", [NSString stringWithFormat:@"%d", (int)AlwaysCorner],
-								 @"-corner-surround", [NSString stringWithFormat:@"%d", (int)cornerSurround],
-								 @"-despeckle-level", [NSString stringWithFormat:@"%d", (int)MinElementSize],
-								 @"-input-format", @"BMP",
+//								 @"-color-count", @"2",
+//								 @"-background-color", @"FFFFFF",
+//								 @"-corner-threshold", [NSString stringWithFormat:@"%d", (int)CornerThreshold],
+//								 @"-corner-always-threshold", [NSString stringWithFormat:@"%d", (int)AlwaysCorner],
+//								 @"-corner-surround", [NSString stringWithFormat:@"%d", (int)cornerSurround],
+//								 @"-despeckle-level", [NSString stringWithFormat:@"%d", (int)MinElementSize],
+//								 @"-input-format", @"BMP",
 								 ImagePath, nil];
 	if (Stroke) {
 		[Arguments insertObject:@"-centerline" atIndex:0];
