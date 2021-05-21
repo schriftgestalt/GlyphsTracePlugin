@@ -193,7 +193,7 @@ at_bitmap_type input_bmp_reader(at_string filename, at_input_opts_type *opts, at
 
 	rowbytes = ((Bitmap_Head.biWidth * Bitmap_Head.biBitCnt - 1) / 32) * 4 + 4;
 
-#ifdef DEBUG
+#ifdef DEBUG_
 	printf("\n// Size: %lu, Colors: %lu, Bits: %u, Width: %lu, Height: %ld, Comp: %lu, Zeile: %u\n",
 		   Bitmap_File_Head.bfSize, Bitmap_Head.biClrUsed, Bitmap_Head.biBitCnt,
 		   Bitmap_Head.biWidth, Bitmap_Head.biHeight, Bitmap_Head.biCompr, rowbytes);
