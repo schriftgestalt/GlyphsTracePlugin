@@ -193,7 +193,7 @@
 - (NSString *)autoTraceImage:(NSString *)ImagePath stroke:(BOOL)Stroke cornerThreshold:(NSUInteger)CornerThreshold cornerSurround:(NSUInteger)cornerSurround alwaysCorner:(NSUInteger)AlwaysCorner minElementSize:(NSUInteger)MinElementSize {
 	NSMutableArray *Arguments = [NSMutableArray arrayWithObjects:
 								 @"-color-count", @"2",
-								 @"-background-color", @"FFFFFF",
+//								 @"-background-color", @"FFFFFF",
 								 @"-corner-threshold", [NSString stringWithFormat:@"%d", (int)CornerThreshold],
 								 @"-corner-always-threshold", [NSString stringWithFormat:@"%d", (int)AlwaysCorner],
 								 @"-corner-surround", [NSString stringWithFormat:@"%d", (int)cornerSurround],
