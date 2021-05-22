@@ -4,11 +4,11 @@ This is a plugin to trace image into editable paths. It uses either the library 
 
 ### Requirements
 
-The plugin was tested in Glyphs 2.2 on OS X 10.19 and later.
+The plugin was tested in Glyphs 3.0.2 on OS X 10.11 and later.
 
 ### License
 
-Copyright 2016 Georg Seifert (@schriftgestalt).
+Copyright 2021 Georg Seifert (@schriftgestalt).
 
 
  This program is free software; you can redistribute it and/or modify
