@@ -192,13 +192,13 @@
 
 - (NSString *)autoTraceImage:(NSString *)ImagePath stroke:(BOOL)Stroke cornerThreshold:(NSUInteger)CornerThreshold cornerSurround:(NSUInteger)cornerSurround alwaysCorner:(NSUInteger)AlwaysCorner minElementSize:(NSUInteger)MinElementSize {
 	NSMutableArray *Arguments = [NSMutableArray arrayWithObjects:
-//								 @"-color-count", @"2",
-//								 @"-background-color", @"FFFFFF",
-//								 @"-corner-threshold", [NSString stringWithFormat:@"%d", (int)CornerThreshold],
-//								 @"-corner-always-threshold", [NSString stringWithFormat:@"%d", (int)AlwaysCorner],
-//								 @"-corner-surround", [NSString stringWithFormat:@"%d", (int)cornerSurround],
-//								 @"-despeckle-level", [NSString stringWithFormat:@"%d", (int)MinElementSize],
-//								 @"-input-format", @"BMP",
+								 @"-color-count", @"2",
+								 @"-background-color", @"FFFFFF",
+								 @"-corner-threshold", [NSString stringWithFormat:@"%d", (int)CornerThreshold],
+								 @"-corner-always-threshold", [NSString stringWithFormat:@"%d", (int)AlwaysCorner],
+								 @"-corner-surround", [NSString stringWithFormat:@"%d", (int)cornerSurround],
+								 @"-despeckle-level", [NSString stringWithFormat:@"%d", (int)MinElementSize],
+								 @"-input-format", @"BMP",
 								 ImagePath, nil];
 	if (Stroke) {
 		[Arguments insertObject:@"-centerline" atIndex:0];
