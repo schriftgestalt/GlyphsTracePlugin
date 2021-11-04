@@ -228,8 +228,8 @@
 - (NSString *)traceFile:(NSArray *)arguments withCommand:(NSString *)Command {
 	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	NSString *helperApplication = [thisBundle pathForResource:Command ofType:nil];
-	NSData *resultData = callCommandArguments(helperApplication, arguments);
-	return [[NSString alloc] initWithData:resultData encoding:NSASCIIStringEncoding];
+	NSTask *task = [NSTask taskWithCommand:helperApplication withAruments:arguments];
+	return [task runAndReturnResultAsString];
 }
 
 @end
