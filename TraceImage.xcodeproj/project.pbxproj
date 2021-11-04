@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56DD8DFF273405CB002BBE38 /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DD8DFE273405CB002BBE38 /* GlyphsCore.framework */; };
+		56DD8E0227340AF4002BBE38 /* NSImage+WritePortableAnymap.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8E0127340AF4002BBE38 /* NSImage+WritePortableAnymap.m */; };
+		56DD8E0527341737002BBE38 /* input-pnm.c in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8E0327341737002BBE38 /* input-pnm.c */; };
 		56E3D8BF1B1C5E28009E51FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3D8BE1B1C5E28009E51FF /* Cocoa.framework */; };
 		56E3D8C91B1C5E28009E51FF /* TraceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8C81B1C5E28009E51FF /* TraceImage.m */; };
 		56E3D8CC1B1C5E28009E51FF /* TraceImageDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E3D8CA1B1C5E28009E51FF /* TraceImageDialog.xib */; };
-		56E3D8CE1B1C5E28009E51FF /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3D8CD1B1C5E28009E51FF /* GlyphsCore.framework */; };
-		56E3D8D71B1C5EF3009E51FF /* NSImage+BMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8D51B1C5EF3009E51FF /* NSImage+BMP.m */; };
 		56E3D94A1B1C5F7B009E51FF /* autotrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8DC1B1C5F53009E51FF /* autotrace.c */; };
 		56E3D94B1B1C5F7B009E51FF /* bitmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8DE1B1C5F53009E51FF /* bitmap.c */; };
 		56E3D94C1B1C5F7B009E51FF /* color.c in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D8E11B1C5F53009E51FF /* color.c */; };
@@ -72,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56DD8DFE273405CB002BBE38 /* GlyphsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlyphsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DD8E0027340AF4002BBE38 /* NSImage+WritePortableAnymap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+WritePortableAnymap.h"; sourceTree = "<group>"; };
+		56DD8E0127340AF4002BBE38 /* NSImage+WritePortableAnymap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+WritePortableAnymap.m"; sourceTree = "<group>"; };
+		56DD8E0327341737002BBE38 /* input-pnm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "input-pnm.c"; sourceTree = "<group>"; };
+		56DD8E0427341737002BBE38 /* input-pnm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "input-pnm.h"; sourceTree = "<group>"; };
 		56E3D8BB1B1C5E28009E51FF /* TraceImage.glyphsFilter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraceImage.glyphsFilter; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E3D8BE1B1C5E28009E51FF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		56E3D8C21B1C5E28009E51FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,8 +87,6 @@
 		56E3D8C81B1C5E28009E51FF /* TraceImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraceImage.m; sourceTree = "<group>"; };
 		56E3D8CB1B1C5E28009E51FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TraceImageDialog.xib; sourceTree = "<group>"; };
 		56E3D8CD1B1C5E28009E51FF /* GlyphsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlyphsCore.framework; path = /Applications/Glyphs.app/Contents/Frameworks/GlyphsCore.framework; sourceTree = "<absolute>"; };
-		56E3D8D51B1C5EF3009E51FF /* NSImage+BMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+BMP.m"; sourceTree = "<group>"; };
-		56E3D8D61B1C5EF3009E51FF /* NSImage+BMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+BMP.h"; sourceTree = "<group>"; };
 		56E3D8D91B1C5F53009E51FF /* acconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acconfig.h; sourceTree = "<group>"; };
 		56E3D8DA1B1C5F53009E51FF /* atou.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = atou.c; sourceTree = "<group>"; };
 		56E3D8DB1B1C5F53009E51FF /* atou.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = atou.h; sourceTree = "<group>"; };
@@ -186,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E3D8CE1B1C5E28009E51FF /* GlyphsCore.framework in Frameworks */,
+				56DD8DFF273405CB002BBE38 /* GlyphsCore.framework in Frameworks */,
 				56E3D8BF1B1C5E28009E51FF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +236,7 @@
 		56E3D8BD1B1C5E28009E51FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56DD8DFE273405CB002BBE38 /* GlyphsCore.framework */,
 				56E3D8BE1B1C5E28009E51FF /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -244,8 +249,8 @@
 				56E3D8C51B1C5E28009E51FF /* TraceImage-Info.plist */,
 				56E3D8C71B1C5E28009E51FF /* TraceImage.h */,
 				56E3D8C81B1C5E28009E51FF /* TraceImage.m */,
-				56E3D8D51B1C5EF3009E51FF /* NSImage+BMP.m */,
-				56E3D8D61B1C5EF3009E51FF /* NSImage+BMP.h */,
+				56DD8E0027340AF4002BBE38 /* NSImage+WritePortableAnymap.h */,
+				56DD8E0127340AF4002BBE38 /* NSImage+WritePortableAnymap.m */,
 				56E3D8C11B1C5E28009E51FF /* Supporting Files */,
 			);
 			path = TraceImage;
@@ -292,6 +297,8 @@
 				56E3D8F21B1C5F53009E51FF /* image-proc.h */,
 				56E3D8F31B1C5F53009E51FF /* input-bmp.c */,
 				56E3D8F41B1C5F53009E51FF /* input-bmp.h */,
+				56DD8E0427341737002BBE38 /* input-pnm.h */,
+				56DD8E0327341737002BBE38 /* input-pnm.c */,
 				56E3D8F51B1C5F53009E51FF /* input.c */,
 				56E3D8F61B1C5F53009E51FF /* input.h */,
 				56E3D8F71B1C5F53009E51FF /* logreport.c */,
@@ -494,8 +501,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E3D8D71B1C5EF3009E51FF /* NSImage+BMP.m in Sources */,
 				56E3D8C91B1C5E28009E51FF /* TraceImage.m in Sources */,
+				56DD8E0227340AF4002BBE38 /* NSImage+WritePortableAnymap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +530,7 @@
 				56E3D94E1B1C5F7B009E51FF /* despeckle.c in Sources */,
 				56E3D9531B1C5F7B009E51FF /* image-proc.c in Sources */,
 				56E3D9601B1C5F7B009E51FF /* vector.c in Sources */,
+				56DD8E0527341737002BBE38 /* input-pnm.c in Sources */,
 				56E3DA101B1C62B1009E51FF /* main.c in Sources */,
 				56E3DA171B1C690B009E51FF /* output-svg.c in Sources */,
 				56E3D9591B1C5F7B009E51FF /* output-glyphs.c in Sources */,
@@ -617,7 +625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -656,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

@@ -23,8 +23,8 @@
 
 #include "autotrace.h"
 #include "input.h"
-//#include "input-pnm.h"
-#include "input-bmp.h"
+#include "input-pnm.h"
+//#include "input-bmp.h"
 //#include "input-tga.h"
 //#ifdef HAVE_LIBPNG
 //#include "input-png.h"
@@ -53,10 +53,10 @@ static struct input_format_entry input_formats[] = {
 //#endif /* HAVE_LIBPNG */
 //  { "TGA",   "Truevision Targa image",         input_tga_reader },
 //  { "PBM",   "Portable bitmap format",         input_pnm_reader },
-//  { "PNM",   "Portable anymap format",         input_pnm_reader },
+  { "PNM",   "Portable anymap format",         input_pnm_reader },
 //  { "PGM",   "Portable graymap format",        input_pnm_reader },
 //  { "PPM",   "Portable pixmap format",         input_pnm_reader },
-  { "BMP",   "Microsoft Windows bitmap image", input_bmp_reader },
+//  { "BMP",   "Microsoft Windows bitmap image", input_bmp_reader },
   END
 };
 
