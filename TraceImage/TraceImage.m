@@ -173,6 +173,7 @@
 			[_nodeCountField setStringValue:[NSString stringWithFormat:@"Something went wrong: %@", result]];
 		}
 	}
+	return YES;
 }
 
 - (void)process:(id)sender {
