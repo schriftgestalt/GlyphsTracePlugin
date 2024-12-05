@@ -17,7 +17,7 @@
 #import <GlyphsCore/GSNode.h>
 #import <GlyphsCore/GSGeometrieHelper.h>
 #import <GlyphsCore/NSStringHelpers.h>
-#import <GlyphsCore/NSTask+CallCommand.h>
+#import <GlyphsKit/NSTask+CallCommand.h>
 #import <GlyphsKit/NSBundle+NibLoading.h>
 
 @implementation TraceImage
@@ -230,7 +230,7 @@
 - (NSString *)traceFile:(NSArray *)arguments withCommand:(NSString *)Command {
 	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	NSString *helperApplication = [thisBundle pathForResource:Command ofType:nil];
-	NSTask *task = [NSTask taskWithCommand:helperApplication withAruments:arguments];
+	NSTask *task = [NSTask taskWithCommand:helperApplication withArguments:arguments];
 	return [task runAndReturnResultAsString];
 }
 
