@@ -109,6 +109,7 @@
 	CGFloat scale = bitmap.pixelsWide / imageSize.width;
 	NSString *tempSaveString = [[_tempDir stringByAppendingPathComponent:_fileName] stringByAppendingString:@".pnm"];
 	if (![bitmap writePortableAnymap:tempSaveString]) {
+		GSLog(@"!writePortableAnymap");
 		return NO;
 	}
 	NSAffineTransform *transform = [NSAffineTransform transform];
@@ -167,7 +168,7 @@
 
 		}
 		@catch (NSException *exception) {
-			UKLog(@"Something went wrong: %@", result);
+			GSLog(@"Something went wrong: %@", result);
 			[_nodeCountField setAlignment:NSLeftTextAlignment];
 			[_nodeCountField setStringValue:[NSString stringWithFormat:@"Something went wrong: %@", result]];
 		}
@@ -178,6 +179,7 @@
 	for (int k = 0; k < [_shadowLayers count]; k++) {
 		GSLayer *layer = _layers[k];
 		if (![self traceImage:layer.backgroundImage]) {
+			GSLog(@"!traceImage");
 			return;
 		}
 	}
@@ -193,7 +195,7 @@
 		[arguments insertObject:@"-n" atIndex:1];
 		[arguments insertObject:[NSString stringWithFormat:@"-O %.3f", optimizationTolerance] atIndex:2];
 	}
-	UKLog(@"__Arguments: %@", arguments);
+	GSLog(@"__Arguments: %@", arguments);
 	return [self traceFile:arguments withCommand:@"potrace"];
 }
 
@@ -210,7 +212,7 @@
 	if (stroke) {
 		[arguments insertObject:@"-centerline" atIndex:0];
 	}
-	UKLog(@"__arguments: %@", [arguments componentsJoinedByString:@"; "]);
+	GSLog(@"__arguments: %@", [arguments componentsJoinedByString:@"; "]);
 	return [self traceFile:arguments withCommand:@"autotrace"];
 }
 
