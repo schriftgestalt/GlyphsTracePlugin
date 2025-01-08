@@ -1213,7 +1213,7 @@ int main(int ac, char *av[]) {
         fprintf(stderr, "" POTRACE ": %s: %s\n", info.infiles[i], strerror(errno));
         exit(2);
       }
-      fout = my_fopen_write(outfile);
+      fout = stdout; // my_fopen_write(outfile); // GS
       if (!fout) {
         fprintf(stderr, "" POTRACE ": %s: %s\n", outfile, strerror(errno));
         exit(2);
