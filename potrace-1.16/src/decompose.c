@@ -144,7 +144,8 @@ static void xor_to_ref(potrace_bitmap_t *bm, int x, int y, int xa) {
 /* xor the given pixmap with the interior of the given path. Note: the
    path must be within the dimensions of the pixmap. */
 static void xor_path(potrace_bitmap_t *bm, path_t *p) {
-  int xa, x, y, k, y1;
+  int k;
+  long xa, x, y, y1;
 
   if (p->priv->len <= 0) {  /* a path of length 0 is silly, but legal */
     return;
@@ -159,7 +160,7 @@ static void xor_path(potrace_bitmap_t *bm, path_t *p) {
 
     if (y != y1) {
       /* efficiently invert the rectangle [x,xa] x [y,y1] */
-      xor_to_ref(bm, x, min(y,y1), xa);
+      xor_to_ref(bm, (int)x, (int)min(y, y1), (int)xa);
       y1 = y;
     }
   }
@@ -177,8 +178,8 @@ static void setbbox_path(bbox_t *bbox, path_t *p) {
   bbox->x1 = 0;
 
   for (k=0; k<p->priv->len; k++) {
-    x = p->priv->pt[k].x;
-    y = p->priv->pt[k].y;
+    x = (int)p->priv->pt[k].x;
+    y = (int)p->priv->pt[k].y;
 
     if (x < bbox->x0) {
       bbox->x0 = x;

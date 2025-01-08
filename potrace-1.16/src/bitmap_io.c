@@ -59,7 +59,7 @@ static int fgetc_ws(FILE *f) {
 
 static int readnum(FILE *f) {
   int c;
-  uint64_t acc;
+  int acc;
 
   /* skip whitespace and comments */
   while (1) {

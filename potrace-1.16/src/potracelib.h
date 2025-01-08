@@ -15,6 +15,9 @@ extern "C" {
 /* ---------------------------------------------------------------------- */
 /* tracing parameters */
 
+#define POTRACE "potrace"
+#define VERSION "1.16"
+
 /* turn policies */
 #define POTRACE_TURNPOLICY_BLACK 0
 #define POTRACE_TURNPOLICY_WHITE 1

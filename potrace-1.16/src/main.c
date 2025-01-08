@@ -132,10 +132,10 @@ static int backend_lookup(const char *name, backend_t **bp) {
     } else if (strncasecmp(backend[i].name, name, strlen(name))==0) {
       m++;
       b = &backend[i];
-    }      
+    }
   }
   /* if there was no exact match, and exactly one prefix match, use that */
-  if (m==1) {  
+  if (m==1) {
     *bp = b;
     return 0;
   } else if (m) {
@@ -186,11 +186,12 @@ static void license(FILE *f) {
 	  );
 }
 
+#if 0 // GS
 static void show_defaults(FILE *f) {
   fprintf(f, "Default unit: " DEFAULT_DIM_NAME "\n");
   fprintf(f, "Default page size: " DEFAULT_PAPERFORMAT "\n");
 }
-#if 0 // GS
+
 static void usage(FILE *f) {
   int j;
 
@@ -482,342 +483,342 @@ static void dopts(int ac, char *av[]) {
 
   while ((c = getopt_long(ac, av, shortopts, longopts, NULL)) != -1) {
     switch (c) {
-    case 'h':
-      fprintf(stdout, "" POTRACE " " VERSION ". Transforms bitmaps into vector graphics.\n\n");
-      // usage(stdout);
-      exit(0);
-      break;
-    case 'v':
-    case 'V':
-      fprintf(stdout, "" POTRACE " " VERSION ". Copyright (C) 2001-2019 Peter Selinger.\n");
-      fprintf(stdout, "Library version: %s\n", potrace_version());
-      // show_defaults(stdout);  // GS
-      exit(0);
-      break;
-    case 'l':
-      fprintf(stdout, "" POTRACE " " VERSION ". Copyright (C) 2001-2019 Peter Selinger.\n\n");
-      license(stdout);
-      exit(0);
-      break;
-    case 'W':
-      info.width_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'H':
-      info.height_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'r':
-      parse_dimensions(optarg, &p, &dimx, &dimy);
-      if (*p == 0 && dimx.d == 0 && dimy.d == 0 && dimx.x != 0.0 && dimy.x != 0.0) {
-	info.rx = dimx.x;
-	info.ry = dimy.x;
-	break;
-      }
-      dim = parse_dimension(optarg, &p);
-      if (*p == 0 && dim.d == 0 && dim.x != 0.0) {
-	info.rx = info.ry = dim.x;
-	break;
-      }
-      fprintf(stderr, "" POTRACE ": invalid resolution -- %s\n", optarg);
-      exit(1);
-      break;
-    case 'x':
-      parse_dimensions(optarg, &p, &dimx, &dimy);
-      if (*p == 0 && dimx.d == 0 && dimy.d == 0) {
-	info.sx = dimx.x;
-	info.sy = dimy.x;
-	break;
-      }
-      dim = parse_dimension(optarg, &p);
-      if (*p == 0 && dim.d == 0) {
-	info.sx = info.sy = dim.x;
-	break;
-      }
-      fprintf(stderr, "" POTRACE ": invalid scaling factor -- %s\n", optarg);
-      exit(1);
-      break;
-    case 'S':
-      info.stretch = atof(optarg);
-      break;
-    case 'M':
-      info.lmar_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      info.rmar_d = info.tmar_d = info.bmar_d = info.lmar_d;
-      break;
-    case 'L':
-      info.lmar_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'R':
-      info.rmar_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'T':
-      info.tmar_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'B':
-      info.bmar_d = parse_dimension(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case OPT_TIGHT:
-      info.tight = 1;
-      break;
-    case 'A':
-      info.angle = strtod(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid angle -- %s\n", optarg);
-	exit(1);
-      }
-      if (info.angle <= -180 || info.angle > 180) {
-        info.angle -= 360 * ceil(info.angle / 360 - 0.5);
-      }
-      break;
-    case 'P':
-      matches = 0;
-      bestmatch = 0;
-      for (i=0; pageformat[i].name!=NULL; i++) {
-        if (strcasecmp(pageformat[i].name, optarg)==0) {
-          matches = 1;
-          bestmatch = i;
+      case 'h':
+        fprintf(stdout, "" POTRACE " " VERSION ". Transforms bitmaps into vector graphics.\n\n");
+        // usage(stdout);
+        exit(0);
+        break;
+      case 'v':
+      case 'V':
+        fprintf(stdout, "" POTRACE " " VERSION ". Copyright (C) 2001-2019 Peter Selinger.\n");
+        fprintf(stdout, "Library version: %s\n", potrace_version());
+        // show_defaults(stdout);  // GS
+        exit(0);
+        break;
+      case 'l':
+        fprintf(stdout, "" POTRACE " " VERSION ". Copyright (C) 2001-2019 Peter Selinger.\n\n");
+        license(stdout);
+        exit(0);
+        break;
+      case 'W':
+        info.width_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'H':
+        info.height_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'r':
+        parse_dimensions(optarg, &p, &dimx, &dimy);
+        if (*p == 0 && dimx.d == 0 && dimy.d == 0 && dimx.x != 0.0 && dimy.x != 0.0) {
+          info.rx = dimx.x;
+          info.ry = dimy.x;
           break;
-	} else if (strncasecmp(pageformat[i].name, optarg, strlen(optarg))==0) {
-	  /* don't allow partial match on "10x14" */
-	  if (optarg[0] != '1') {
-	    matches++;
-	    bestmatch = i;
-	  }
-	}
-      }
-      if (matches == 1) {
-	info.paperwidth = pageformat[bestmatch].w;
-	info.paperheight = pageformat[bestmatch].h;
-	break;
-      }
-      parse_dimensions(optarg, &p, &dimx, &dimy);
-      if (*p == 0) {
-	info.paperwidth = (int)round(double_of_dim(dimx, DEFAULT_DIM));
-	info.paperheight = (int)round(double_of_dim(dimy, DEFAULT_DIM));
-	break;
-      }
-      if (matches == 0) {
-	fprintf(stderr, "" POTRACE ": unrecognized page format -- %s\n", optarg);
-      } else {
-	fprintf(stderr, "" POTRACE ": ambiguous page format -- %s\n", optarg);
-      }
-      j = fprintf(stderr, "Use one of: ");
-      for (i=0; pageformat[i].name!=NULL; i++) {
-	if (j + strlen(pageformat[i].name) > 75) {
-	  fprintf(stderr, "\n");
-	  j = 0;
-	}
-	j += fprintf(stderr, "%s, ", pageformat[i].name);
-      }
-      fprintf(stderr, "or specify <dim>x<dim>.\n");
-      exit(1);
-      break;
-    case 't':
-      info.param->turdsize = atoi(optarg);
-      break;
-    case 'u':
-      info.unit = strtod(optarg, &p);
-      if (*p) {
-        fprintf(stderr, "" POTRACE ": invalid unit -- %s\n", optarg);
+        }
+        dim = parse_dimension(optarg, &p);
+        if (*p == 0 && dim.d == 0 && dim.x != 0.0) {
+          info.rx = info.ry = dim.x;
+          break;
+        }
+        fprintf(stderr, "" POTRACE ": invalid resolution -- %s\n", optarg);
         exit(1);
-      }
-      break;
-    case 'c':
-      info.pslevel = 2;
-      info.compress = 0;
-      break;
-    case '2':
-      info.pslevel = 2;
-      info.compress = 1;
-      break;
-    case '3':
-#ifdef HAVE_ZLIB
-      info.pslevel = 3;
-      info.compress = 1;
-#else
-      fprintf(stderr, "" POTRACE ": option -3 not supported, using -2 instead.\n");
-      fflush(stderr);
-      info.pslevel = 2;
-      info.compress = 1;
-#endif
-      break;
-#if 0 // GS
-    case 'e':
-      backend_lookup("eps", &info.backend);
-      break;
-    case 'p':
-      backend_lookup("postscript", &info.backend);
-      break;
-    case 's':
-      backend_lookup("svg", &info.backend);
-      break;
-    case 'g':
-      backend_lookup("pgm", &info.backend);
-      break;
-#endif // GS
-    case 'b':
-      r = backend_lookup(optarg, &info.backend);
-      if (r==1 || r==2) {
-	if (r==1) {
-	  fprintf(stderr, "" POTRACE ": unrecognized backend -- %s\n", optarg);
-	} else {
-	  fprintf(stderr, "" POTRACE ": ambiguous backend -- %s\n", optarg);
-	}
-	j = fprintf(stderr, "Use one of: ");
-	backend_list(stderr, j, 70);
-	fprintf(stderr, ".\n");
-	exit(1);
-      }
-      break;
-    case 'd':
-      info.debug = atoi(optarg);
-      break;
-    case 'C':
-      info.color = parse_color(optarg);
-      if (info.color == -1) {
-	fprintf(stderr, "" POTRACE ": invalid color -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case OPT_FILLCOLOR:
-      info.fillcolor = parse_color(optarg);
-      if (info.fillcolor == -1) {
-	fprintf(stderr, "" POTRACE ": invalid color -- %s\n", optarg);
-	exit(1);
-      }
-      info.opaque = 1;
-      break;
-    case 'z':
-      matches = 0;
-      bestmatch = 0;
-      for (i=0; turnpolicy[i].name!=NULL; i++) {
-        if (strcasecmp(turnpolicy[i].name, optarg)==0) {
-	  matches = 1;
-	  bestmatch = i;
+        break;
+      case 'x':
+        parse_dimensions(optarg, &p, &dimx, &dimy);
+        if (*p == 0 && dimx.d == 0 && dimy.d == 0) {
+          info.sx = dimx.x;
+          info.sy = dimy.x;
           break;
-	} else if (strncasecmp(turnpolicy[i].name, optarg, strlen(optarg))==0) {
-	  matches++;
-	  bestmatch = i;
-	}
-      }
-      if (matches == 1) {
-	info.param->turnpolicy = turnpolicy[bestmatch].n;
-	break;
-      }
-      if (matches == 0) {
-	fprintf(stderr, "" POTRACE ": unrecognized turnpolicy -- %s\n", optarg);
-      } else {
-	fprintf(stderr, "" POTRACE ": ambiguous turnpolicy -- %s\n", optarg);
-      }
-      j = fprintf(stderr, "Use one of: ");
-      for (i=0; turnpolicy[i].name!=NULL; i++) {
-	if (j + strlen(turnpolicy[i].name) > 75) {
-	  fprintf(stderr, "\n");
-	  j = 0;
-	}
-	j += fprintf(stderr, "%s%s", turnpolicy[i].name, turnpolicy[i+1].name ? ", " : "");
-      }
-      fprintf(stderr, ".\n");
-      exit(1);
-      break;
-    case 'G':
-      info.gamma = atof(optarg);
-      break;
-    case 'n':
-      info.param->opticurve = 0;
-      break;
-    case 'q':
-      info.longcoding = 1;
-      break;
-    case 'a':
-      info.param->alphamax = strtod(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid alphamax -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'O':
-      info.param->opttolerance = strtod(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid opttolerance -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'o':
-      free(info.outfile);
-      info.outfile = strdup(optarg);
-      if (!info.outfile) {
-	fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
-        exit(2);
-      }
-      break;
-    case 'k':
-      info.blacklevel = strtod(optarg, &p);
-      if (*p) {
-	fprintf(stderr, "" POTRACE ": invalid blacklevel -- %s\n", optarg);
-	exit(1);
-      }
-      break;
-    case 'i':
-      info.invert = 1;
-      break;
-    case OPT_OPAQUE:
-      info.opaque = 1;
-      break;
-    case OPT_GROUP:
-      info.grouping = 2;
-      break;
-    case OPT_FLAT:
-      info.grouping = 0;
-      break;
-    case OPT_PROGRESS:
-      info.progress = 1;
-      break;
-#if 0
-    case OPT_TTY:
-      if (strcmp(optarg, "dumb") == 0) {
-	info.progress_bar = progress_bar_simplified;
-      } else if (strcmp(optarg, "vt100") == 0) {
-	info.progress_bar = progress_bar_vt100;
-      } else {
-	fprintf(stderr, "" POTRACE ": invalid tty mode -- %s. Try --help for more info\n", optarg);
-	exit(1);
-      }
-      break;
+        }
+        dim = parse_dimension(optarg, &p);
+        if (*p == 0 && dim.d == 0) {
+          info.sx = info.sy = dim.x;
+          break;
+        }
+        fprintf(stderr, "" POTRACE ": invalid scaling factor -- %s\n", optarg);
+        exit(1);
+        break;
+      case 'S':
+        info.stretch = atof(optarg);
+        break;
+      case 'M':
+        info.lmar_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        info.rmar_d = info.tmar_d = info.bmar_d = info.lmar_d;
+        break;
+      case 'L':
+        info.lmar_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'R':
+        info.rmar_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'T':
+        info.tmar_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'B':
+        info.bmar_d = parse_dimension(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid dimension -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case OPT_TIGHT:
+        info.tight = 1;
+        break;
+      case 'A':
+        info.angle = strtod(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid angle -- %s\n", optarg);
+          exit(1);
+        }
+        if (info.angle <= -180 || info.angle > 180) {
+          info.angle -= 360 * ceil(info.angle / 360 - 0.5);
+        }
+        break;
+      case 'P':
+        matches = 0;
+        bestmatch = 0;
+        for (i=0; pageformat[i].name!=NULL; i++) {
+          if (strcasecmp(pageformat[i].name, optarg)==0) {
+            matches = 1;
+            bestmatch = i;
+            break;
+          } else if (strncasecmp(pageformat[i].name, optarg, strlen(optarg))==0) {
+            /* don't allow partial match on "10x14" */
+            if (optarg[0] != '1') {
+              matches++;
+              bestmatch = i;
+            }
+          }
+        }
+        if (matches == 1) {
+          info.paperwidth = pageformat[bestmatch].w;
+          info.paperheight = pageformat[bestmatch].h;
+          break;
+        }
+        parse_dimensions(optarg, &p, &dimx, &dimy);
+        if (*p == 0) {
+          info.paperwidth = (int)round(double_of_dim(dimx, DEFAULT_DIM));
+          info.paperheight = (int)round(double_of_dim(dimy, DEFAULT_DIM));
+          break;
+        }
+        if (matches == 0) {
+          fprintf(stderr, "" POTRACE ": unrecognized page format -- %s\n", optarg);
+        } else {
+          fprintf(stderr, "" POTRACE ": ambiguous page format -- %s\n", optarg);
+        }
+        j = fprintf(stderr, "Use one of: ");
+        for (i=0; pageformat[i].name!=NULL; i++) {
+          if (j + strlen(pageformat[i].name) > 75) {
+            fprintf(stderr, "\n");
+            j = 0;
+          }
+          j += fprintf(stderr, "%s, ", pageformat[i].name);
+        }
+        fprintf(stderr, "or specify <dim>x<dim>.\n");
+        exit(1);
+        break;
+      case 't':
+        info.param->turdsize = atoi(optarg);
+        break;
+      case 'u':
+        info.unit = strtod(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid unit -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'c':
+        info.pslevel = 2;
+        info.compress = 0;
+        break;
+      case '2':
+        info.pslevel = 2;
+        info.compress = 1;
+        break;
+      case '3':
+#ifdef HAVE_ZLIB
+        info.pslevel = 3;
+        info.compress = 1;
+#else
+        fprintf(stderr, "" POTRACE ": option -3 not supported, using -2 instead.\n");
+        fflush(stderr);
+        info.pslevel = 2;
+        info.compress = 1;
 #endif
-    case '?':
-      fprintf(stderr, "Try --help for more info\n");
-      exit(1);
-      break;
-    default:
-      fprintf(stderr, "" POTRACE ": Unimplemented option -- %c\n", c);
-      exit(1);
+        break;
+#if 0 // GS
+      case 'e':
+        backend_lookup("eps", &info.backend);
+        break;
+      case 'p':
+        backend_lookup("postscript", &info.backend);
+        break;
+      case 's':
+        backend_lookup("svg", &info.backend);
+        break;
+      case 'g':
+        backend_lookup("pgm", &info.backend);
+        break;
+#endif // GS
+      case 'b':
+        r = backend_lookup(optarg, &info.backend);
+        if (r==1 || r==2) {
+          if (r==1) {
+            fprintf(stderr, "" POTRACE ": unrecognized backend -- %s\n", optarg);
+          } else {
+            fprintf(stderr, "" POTRACE ": ambiguous backend -- %s\n", optarg);
+          }
+          j = fprintf(stderr, "Use one of: ");
+          backend_list(stderr, j, 70);
+          fprintf(stderr, ".\n");
+          exit(1);
+        }
+        break;
+      case 'd':
+        info.debug = atoi(optarg);
+        break;
+      case 'C':
+        info.color = parse_color(optarg);
+        if (info.color == -1) {
+          fprintf(stderr, "" POTRACE ": invalid color -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case OPT_FILLCOLOR:
+        info.fillcolor = parse_color(optarg);
+        if (info.fillcolor == -1) {
+          fprintf(stderr, "" POTRACE ": invalid color -- %s\n", optarg);
+          exit(1);
+        }
+        info.opaque = 1;
+        break;
+      case 'z':
+        matches = 0;
+        bestmatch = 0;
+        for (i=0; turnpolicy[i].name!=NULL; i++) {
+          if (strcasecmp(turnpolicy[i].name, optarg)==0) {
+            matches = 1;
+            bestmatch = i;
+            break;
+          } else if (strncasecmp(turnpolicy[i].name, optarg, strlen(optarg))==0) {
+            matches++;
+            bestmatch = i;
+          }
+        }
+        if (matches == 1) {
+          info.param->turnpolicy = turnpolicy[bestmatch].n;
+          break;
+        }
+        if (matches == 0) {
+          fprintf(stderr, "" POTRACE ": unrecognized turnpolicy -- %s\n", optarg);
+        } else {
+          fprintf(stderr, "" POTRACE ": ambiguous turnpolicy -- %s\n", optarg);
+        }
+        j = fprintf(stderr, "Use one of: ");
+        for (i=0; turnpolicy[i].name!=NULL; i++) {
+          if (j + strlen(turnpolicy[i].name) > 75) {
+            fprintf(stderr, "\n");
+            j = 0;
+          }
+          j += fprintf(stderr, "%s%s", turnpolicy[i].name, turnpolicy[i+1].name ? ", " : "");
+        }
+        fprintf(stderr, ".\n");
+        exit(1);
+        break;
+      case 'G':
+        info.gamma = atof(optarg);
+        break;
+      case 'n':
+        info.param->opticurve = 0;
+        break;
+      case 'q':
+        info.longcoding = 1;
+        break;
+      case 'a':
+        info.param->alphamax = strtod(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid alphamax -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'O':
+        info.param->opttolerance = strtod(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid opttolerance -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'o':
+        free(info.outfile);
+        info.outfile = strdup(optarg);
+        if (!info.outfile) {
+          fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
+          exit(2);
+        }
+        break;
+      case 'k':
+        info.blacklevel = strtod(optarg, &p);
+        if (*p) {
+          fprintf(stderr, "" POTRACE ": invalid blacklevel -- %s\n", optarg);
+          exit(1);
+        }
+        break;
+      case 'i':
+        info.invert = 1;
+        break;
+      case OPT_OPAQUE:
+        info.opaque = 1;
+        break;
+      case OPT_GROUP:
+        info.grouping = 2;
+        break;
+      case OPT_FLAT:
+        info.grouping = 0;
+        break;
+      case OPT_PROGRESS:
+        info.progress = 1;
+        break;
+#if 0
+      case OPT_TTY:
+        if (strcmp(optarg, "dumb") == 0) {
+          info.progress_bar = progress_bar_simplified;
+        } else if (strcmp(optarg, "vt100") == 0) {
+          info.progress_bar = progress_bar_vt100;
+        } else {
+          fprintf(stderr, "" POTRACE ": invalid tty mode -- %s. Try --help for more info\n", optarg);
+          exit(1);
+        }
+        break;
+#endif
+      case '?':
+        fprintf(stderr, "Try --help for more info\n");
+        exit(1);
+        break;
+      default:
+        fprintf(stderr, "" POTRACE ": Unimplemented option -- %c\n", c);
+        exit(1);
     }
   }
   info.infiles = &av[optind];
@@ -913,7 +914,7 @@ static void calc_dimensions(imginfo_t *imginfo, potrace_path_t *plist) {
     imginfo->width = imginfo->trans.bb[0];
     imginfo->height = imginfo->trans.bb[1] * info.stretch;
     default_scaling = 1;
-  } 
+  }
 
   /* apply scaling */
   trans_scale_to_size(&imginfo->trans, imginfo->width, imginfo->height);
@@ -937,7 +938,7 @@ static void calc_dimensions(imginfo_t *imginfo, potrace_path_t *plist) {
     
     if (imginfo->lmar != UNDEF && imginfo->rmar != UNDEF) {
       maxwidth = info.paperwidth - imginfo->lmar - imginfo->rmar;
-    } 
+    }
     if (imginfo->bmar != UNDEF && imginfo->tmar != UNDEF) {
       maxheight = info.paperheight - imginfo->bmar - imginfo->tmar;
     }
@@ -1055,8 +1056,8 @@ static char *make_outfilename(const char *infile, const char *ext) {
    using the page_f function of the appropriate backend. */
 
 static void process_file(backend_t *b, const char *infile, const char *outfile, FILE *fin, FILE *fout) { 
-  int r; 
-  potrace_bitmap_t *bm = NULL; 
+  int r;
+  potrace_bitmap_t *bm = NULL;
   imginfo_t imginfo;
   int eof_flag = 0;  /* to indicate premature eof */
   int count;         /* number of bitmaps successfully processed, this file */
@@ -1066,38 +1067,38 @@ static void process_file(backend_t *b, const char *infile, const char *outfile, 
     /* read a bitmap */
     r = bm_read(fin, info.blacklevel, &bm);
     switch (r) {
-    case -1:  /* system error */
-      fprintf(stderr, "" POTRACE ": %s: %s\n", infile, strerror(errno));
-      exit(2);
-    case -2:  /* corrupt file format */
-      fprintf(stderr, "" POTRACE ": %s: file format error: %s\n", infile, bm_read_error);
-      exit(2);
-    case -3:  /* empty file */
-      if (count>0) {  /* end of file */
-	return;
-      }
-      fprintf(stderr, "" POTRACE ": %s: empty file\n", infile);
-      exit(2);
-    case -4:  /* wrong magic */
-      if (count>0) { 
-	fprintf(stderr, "" POTRACE ": %s: warning: junk at end of file\n", infile);
-	return;
-      }
-      fprintf(stderr, "" POTRACE ": %s: file format not recognized\n", infile);
-      fprintf(stderr, "Possible input file formats are: pnm (pbm, pgm, ppm), bmp.\n");
-      exit(2);
-    case 1:  /* unexpected end of file */
-      fprintf(stderr, "" POTRACE ": warning: %s: premature end of file\n", infile);
-      eof_flag = 1;
-      break;
+      case -1:  /* system error */
+        fprintf(stderr, "" POTRACE ": %s: %s\n", infile, strerror(errno));
+        exit(2);
+      case -2:  /* corrupt file format */
+        fprintf(stderr, "" POTRACE ": %s: file format error: %s\n", infile, bm_read_error);
+        exit(2);
+      case -3:  /* empty file */
+        if (count>0) {  /* end of file */
+          return;
+        }
+        fprintf(stderr, "" POTRACE ": %s: empty file\n", infile);
+        exit(2);
+      case -4:  /* wrong magic */
+        if (count>0) {
+          fprintf(stderr, "" POTRACE ": %s: warning: junk at end of file\n", infile);
+          return;
+        }
+        fprintf(stderr, "" POTRACE ": %s: file format not recognized\n", infile);
+        fprintf(stderr, "Possible input file formats are: pnm (pbm, pgm, ppm), bmp.\n");
+        exit(2);
+      case 1:  /* unexpected end of file */
+        fprintf(stderr, "" POTRACE ": warning: %s: premature end of file\n", infile);
+        eof_flag = 1;
+        break;
     }
 
     /* prepare progress bar, if requested */
     if (info.progress) {
       r = info.progress_bar->init(&info.param->progress, infile, count);
       if (r) {
-	fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
-	exit(2);
+        fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
+        exit(2);
       }
     } else {
       info.param->progress.callback = NULL;
@@ -1185,7 +1186,7 @@ int main(int ac, char *av[]) {
     fout = my_fopen_write(info.outfile);
     if (!fout) {
       fprintf(stderr, "" POTRACE ": %s: %s\n", info.outfile ? info.outfile : "stdout", strerror(errno));
-      exit(2); 
+      exit(2);
     }
     if (b->init_f) {
       TRY(b->init_f(fout));
@@ -1204,32 +1205,32 @@ int main(int ac, char *av[]) {
     for (i=0; i<info.infilecount; i++) {
       outfile = make_outfilename(info.infiles[i], b->ext);
       if (!outfile) {
-	fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
-	exit(2);
+        fprintf(stderr, "" POTRACE ": %s\n", strerror(errno));
+        exit(2);
       }
       fin = my_fopen_read(info.infiles[i]);
       if (!fin) {
-	fprintf(stderr, "" POTRACE ": %s: %s\n", info.infiles[i], strerror(errno));
-	exit(2);
+        fprintf(stderr, "" POTRACE ": %s: %s\n", info.infiles[i], strerror(errno));
+        exit(2);
       }
       fout = my_fopen_write(outfile);
       if (!fout) {
-	fprintf(stderr, "" POTRACE ": %s: %s\n", outfile, strerror(errno));
-	exit(2);
+        fprintf(stderr, "" POTRACE ": %s: %s\n", outfile, strerror(errno));
+        exit(2);
       }
       if (b->init_f) {
-	TRY(b->init_f(fout));
+        TRY(b->init_f(fout));
       }
       process_file(b, info.infiles[i], outfile, fin, fout);
       if (b->term_f) {
-	TRY(b->term_f(fout));
+        TRY(b->term_f(fout));
       }
       my_fclose(fin, info.infiles[i]);
       my_fclose(fout, outfile);
       free(outfile);
     }
     potrace_param_free(info.param);
-    return 0; 
+    return 0;
 
   } else {                                   /* infiles to single outfile */
 
@@ -1253,8 +1254,8 @@ int main(int ac, char *av[]) {
     for (i=0; i<info.infilecount; i++) {
       fin = my_fopen_read(info.infiles[i]);
       if (!fin) {
-	fprintf(stderr, "" POTRACE ": %s: %s\n", info.infiles[i], strerror(errno));
-	exit(2);
+        fprintf(stderr, "" POTRACE ": %s: %s\n", info.infiles[i], strerror(errno));
+        exit(2);
       }
       process_file(b, info.infiles[i], info.outfile, fin, fout);
       my_fclose(fin, info.infiles[i]);
