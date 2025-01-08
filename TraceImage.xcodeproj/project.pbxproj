@@ -157,7 +157,7 @@
 		56E3D9211B1C5F53009E51FF /* bitops.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bitops.h; sourceTree = "<group>"; };
 		56E3D9221B1C5F53009E51FF /* curve.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = curve.c; sourceTree = "<group>"; };
 		56E3D9231B1C5F53009E51FF /* curve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = curve.h; sourceTree = "<group>"; };
-		56E3D9241B1C5F53009E51FF /* decompose.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decompose.c; sourceTree = "<group>"; };
+		56E3D9241B1C5F53009E51FF /* decompose.c */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = decompose.c; sourceTree = "<group>"; usesTabs = 0; };
 		56E3D9251B1C5F53009E51FF /* decompose.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = decompose.h; sourceTree = "<group>"; };
 		56E3D9261B1C5F53009E51FF /* flate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = flate.c; sourceTree = "<group>"; };
 		56E3D9271B1C5F53009E51FF /* flate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flate.h; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		56E3D92B1B1C5F53009E51FF /* lists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lists.h; sourceTree = "<group>"; };
 		56E3D92C1B1C5F53009E51FF /* lzw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lzw.c; sourceTree = "<group>"; };
 		56E3D92D1B1C5F53009E51FF /* lzw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lzw.h; sourceTree = "<group>"; };
-		56E3D92E1B1C5F53009E51FF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		56E3D92E1B1C5F53009E51FF /* main.c */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		56E3D92F1B1C5F53009E51FF /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		56E3D9331B1C5F53009E51FF /* platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
 		56E3D9341B1C5F53009E51FF /* potracelib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = potracelib.c; sourceTree = "<group>"; };
