@@ -216,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				56E3D8D81B1C5F53009E51FF /* autotrace */,
-				56E3D9111B1C5F53009E51FF /* potrace-1.13 */,
+				56E3D9111B1C5F53009E51FF /* potrace-1.16 */,
 				56E3D8C01B1C5E28009E51FF /* TraceImage */,
 				56E3D8BD1B1C5E28009E51FF /* Frameworks */,
 				56E3D8BC1B1C5E28009E51FF /* Products */,
@@ -333,7 +333,7 @@
 			tabWidth = 2;
 			usesTabs = 0;
 		};
-		56E3D9111B1C5F53009E51FF /* potrace-1.13 */ = {
+		56E3D9111B1C5F53009E51FF /* potrace-1.16 */ = {
 			isa = PBXGroup;
 			children = (
 				56E3D9121B1C5F53009E51FF /* AUTHORS */,
@@ -344,7 +344,7 @@
 				56E3D9171B1C5F53009E51FF /* README */,
 				56E3D9181B1C5F53009E51FF /* src */,
 			);
-			path = "potrace-1.13";
+			path = "potrace-1.16";
 			sourceTree = "<group>";
 		};
 		56E3D9181B1C5F53009E51FF /* src */ = {
