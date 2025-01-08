@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSBitmapImageRep*)bitmapImageRep;
 
+- (NSImage *)flattenedGrayscaleImageFromImage;
+
 @end
 
 @interface NSBitmapImageRep (WritePortableAnymap)

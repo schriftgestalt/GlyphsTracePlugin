@@ -104,8 +104,9 @@
 	if (!image || ![image hasImageToDraw]) {
 		return YES;
 	}
-	NSBitmapImageRep *bitmap = [image.image bitmapImageRep];
-	NSSize imageSize = image.image.size;
+	NSImage *grayImage = [image.image flattenedGrayscaleImageFromImage];
+	NSBitmapImageRep *bitmap = [grayImage bitmapImageRep];
+	NSSize imageSize = grayImage.size;
 	CGFloat scale = bitmap.pixelsWide / imageSize.width;
 	NSString *tempSaveString = [[_tempDir stringByAppendingPathComponent:_fileName] stringByAppendingString:@".pnm"];
 	if (![bitmap writePortableAnymap:tempSaveString]) {
