@@ -1,13 +1,10 @@
-/* Copyright (C) 2001-2015 Peter Selinger.
+/* Copyright (C) 2001-2019 Peter Selinger.
    This file is part of Potrace. It is free software and it is covered
    by the GNU General Public License. See the file COPYING for details. */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-
-#define POTRACE "$POTRACE"
-#define VERSION "$VERSION"
 
 #include <stdlib.h>
 #include <string.h>
@@ -112,6 +109,6 @@ void potrace_param_free(potrace_param_t *p) {
   free(p);
 }
 
-char *potrace_version(void) {
-  return "potracelib "VERSION"";
+const char *potrace_version(void) {
+  return "potracelib " VERSION "";
 }
