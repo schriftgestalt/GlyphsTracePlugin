@@ -118,8 +118,8 @@
 
 	NSString *result = nil;
 	NSString *identifier = [[_tabView selectedTabViewItem] identifier];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	if ([identifier isEqualToString:@"potrace"]) {
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		CGFloat threshold = [defaults floatForKey:@"com.schriftgestaltung.Trace.Threshold"];
 		NSUInteger minElementSize = labs([defaults integerForKey:@"com.schriftgestaltung.Trace.poMinElementSize"]);
 		CGFloat roundness = [defaults floatForKey:@"com.schriftgestaltung.Trace.Roundness"];
@@ -128,7 +128,6 @@
 		result = [self poTraceImage:tempSaveString withThreshold:threshold minElementSize:minElementSize roundness:roundness optimize:optimize optimizationTolerance:optimizationTolerance];
 	}
 	else if ([identifier isEqualToString:@"autotrace"]) {
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		BOOL stroke = [defaults boolForKey:@"com.schriftgestaltung.Trace.Stroke"];
 		NSUInteger cornerThreshold = [defaults integerForKey:@"com.schriftgestaltung.Trace.CornerThreshold"];
 		NSUInteger cornerSurround = [defaults integerForKey:@"com.schriftgestaltung.Trace.CornerSurround"];
